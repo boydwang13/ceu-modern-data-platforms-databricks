@@ -176,7 +176,7 @@ display(sales_df.select(first_letter_udf(col("email"))))
 # MAGIC * <a href="https://databricks.com/blog/2017/10/30/introducing-vectorized-udfs-for-pyspark.html" target="_blank">Blog post</a>
 # MAGIC * <a href="https://spark.apache.org/docs/latest/api/python/user_guide/sql/arrow_pandas.html?highlight=arrow" target="_blank">Documentation</a>
 # MAGIC
-# MAGIC <img src="https://databricks.com/wp-content/uploads/2017/10/image1-4.png" alt="Benchmark" width ="500" height="1500">
+# MAGIC <img src="https://dbx-data-public.s3.amazonaws.com/images/udf-benchmark.png" alt="Benchmark" width ="500" height="1500">
 # MAGIC
 # MAGIC The user-defined functions are executed using:
 # MAGIC * <a href="https://arrow.apache.org/" target="_blank">Apache Arrow</a>, an in-memory columnar data format that is used in Spark to efficiently transfer data between JVM and Python processes with near-zero (de)serialization cost
