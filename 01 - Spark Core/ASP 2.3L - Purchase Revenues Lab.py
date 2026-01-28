@@ -101,7 +101,7 @@ print("All test pass")
 # MAGIC - Select "event_name" and get distinct records
 # MAGIC - Drop duplicate records based on the "event_name" only
 # MAGIC
-# MAGIC <img src="https://files.training.databricks.com/images/icon_hint_32.png" alt="Hint"> There's only one event associated with revenues
+# MAGIC 💡 There's only one event associated with revenues
 
 # COMMAND ----------
 

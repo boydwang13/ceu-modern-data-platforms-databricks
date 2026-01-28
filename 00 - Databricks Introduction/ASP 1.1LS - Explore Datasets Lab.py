@@ -29,7 +29,7 @@
 # MAGIC ### 1. List files in DBFS using magic commands
 # MAGIC Use a magic command to display files located in the DBFS directory: **`/`**
 # MAGIC
-# MAGIC <img src="https://files.training.databricks.com/images/icon_hint_32.png" alt="Hint"> You should see several directories.
+# MAGIC 💡 You should see several directories.
 
 # COMMAND ----------
 
@@ -45,7 +45,7 @@
 # MAGIC - Use **`dbutils`** to get the files at the directory above and assign it to the variable **`files`**
 # MAGIC - Use the Databricks display() function to display the contents in **`files`**
 # MAGIC
-# MAGIC <img src="https://files.training.databricks.com/images/icon_hint_32.png" alt="Hint"> Just as before, you should see several user directories including your own.
+# MAGIC 💡 Just as before, you should see several user directories including your own.
 
 # COMMAND ----------
 
@@ -65,7 +65,7 @@ display(files)
 # MAGIC - Create the **`products`** table using the spark-context variable **`s3a://dbx-data-public/v03/products/products.delta`** (! different folder)
 # MAGIC - Create the **`events`** table using the spark-context variable **`s3a://dbx-data-public/v03/ecommerce/events/events.delta`**
 # MAGIC
-# MAGIC <img src="https://files.training.databricks.com/images/icon_hint_32.png"> Hint: We've already created the **`events`** view in the previous notebook. Use `CREATE VIEW IF NOT EXISTS`
+# MAGIC 💡 Hint: We've already created the **`events`** view in the previous notebook. Use `CREATE VIEW IF NOT EXISTS`
 
 # COMMAND ----------
 
@@ -117,7 +117,7 @@ display(files)
 # MAGIC
 # MAGIC Execute a SQL query that selects all from the **`products`** table. 
 # MAGIC
-# MAGIC <img src="https://files.training.databricks.com/images/icon_hint_32.png" alt="Hint"> You should see 12 products.
+# MAGIC 💡 You should see 12 products.
 
 # COMMAND ----------
 
@@ -147,7 +147,7 @@ display(files)
 # MAGIC
 # MAGIC Execute a SQL query that computes the average **`purchase_revenue_in_usd`** from the **`sales`** table.
 # MAGIC
-# MAGIC <img src="https://files.training.databricks.com/images/icon_hint_32.png" alt="Hint"> The result should be **`1042.79`**.
+# MAGIC 💡 The result should be **`1042.79`**.
 
 # COMMAND ----------
 
@@ -180,7 +180,7 @@ display(files)
 # MAGIC
 # MAGIC Execute a SQL query that selects distinct values in **`event_name`** from the **`events`** table
 # MAGIC
-# MAGIC <img src="https://files.training.databricks.com/images/icon_hint_32.png" alt="Hint"> You should see 23 distinct **`event_name`** values.
+# MAGIC 💡 You should see 23 distinct **`event_name`** values.
 
 # COMMAND ----------
 

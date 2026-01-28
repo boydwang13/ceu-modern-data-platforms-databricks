@@ -90,7 +90,7 @@ print("All test pass")
 # MAGIC ### 3. Rewrite sales data to same Delta path
 # MAGIC Write **`updated_sales_df`** to the same Delta location **`delta_sales_path`**.
 # MAGIC
-# MAGIC <img src="https://files.training.databricks.com/images/icon_hint_32.png" alt="Hint"> This will fail without an option to overwrite the schema.
+# MAGIC 💡 This will fail without an option to overwrite the schema.
 
 # COMMAND ----------
 

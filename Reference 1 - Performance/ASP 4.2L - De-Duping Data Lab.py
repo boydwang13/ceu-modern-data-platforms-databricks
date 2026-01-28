@@ -26,12 +26,12 @@
 # MAGIC * Remove duplicates. It doesn't matter which record you keep; it only matters that you keep one of them.
 # MAGIC * Preserve the data format of the columns. For example, if you write the first name column in all lowercase, you haven't met this requirement.
 # MAGIC
-# MAGIC <img src="https://files.training.databricks.com/images/icon_hint_32.png" alt="Hint"> The initial dataset contains 103,000 records.
+# MAGIC 💡 The initial dataset contains 103,000 records.
 # MAGIC The de-duplicated result has 100,000 records.
 # MAGIC
 # MAGIC Next, write the results in **Delta** format as a **single data file** to the directory given by the variable **delta_dest_dir**.
 # MAGIC
-# MAGIC <img src="https://files.training.databricks.com/images/icon_hint_32.png" alt="Hint"> Remember the relationship between the number of partitions in a DataFrame and the number of files written.
+# MAGIC 💡 Remember the relationship between the number of partitions in a DataFrame and the number of files written.
 # MAGIC
 # MAGIC ##### Methods
 # MAGIC - <a href="https://spark.apache.org/docs/latest/api/python/reference/pyspark.sql/io.html" target="_blank">DataFrameReader</a>

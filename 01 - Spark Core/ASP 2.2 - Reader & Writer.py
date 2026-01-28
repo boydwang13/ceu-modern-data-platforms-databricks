@@ -241,7 +241,7 @@ display(
 # MAGIC
 # MAGIC Write **`events_df`** to a table using the DataFrameWriter method **`saveAsTable`**
 # MAGIC
-# MAGIC <img src="https://files.training.databricks.com/images/icon_note_32.png" alt="Note"> This creates a global table, unlike the local view created by the DataFrame method **`createOrReplaceTempView`**
+# MAGIC 📝 This creates a global table, unlike the local view created by the DataFrame method **`createOrReplaceTempView`**
 
 # COMMAND ----------
 

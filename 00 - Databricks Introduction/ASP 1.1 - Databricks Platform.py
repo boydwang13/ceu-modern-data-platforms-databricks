@@ -248,7 +248,7 @@ display(files)
 # MAGIC
 # MAGIC
 # MAGIC
-# MAGIC <img src="https://files.training.databricks.com/images/icon_note_24.png"> In the above example we use **`whatever.`** to give our variable a "namespace".
+# MAGIC 📝 In the above example we use **`whatever.`** to give our variable a "namespace".
 # MAGIC
 # MAGIC This is so that we don't accidently step over other configuration parameters.
 # MAGIC

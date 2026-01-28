@@ -115,7 +115,7 @@ stupid_df.explain(True)
 # MAGIC
 # MAGIC If you do cache a DataFrame, you should always explictly evict it from cache by invoking **`unpersist`** when you no longer need it.
 # MAGIC
-# MAGIC <img src="https://files.training.databricks.com/images/icon_best_32.png" alt="Best Practice"> Caching a DataFrame can be appropriate if you are certain that you will use the same DataFrame multiple times, as in:
+# MAGIC ✨ Caching a DataFrame can be appropriate if you are certain that you will use the same DataFrame multiple times, as in:
 # MAGIC
 # MAGIC - Exploratory data analysis
 # MAGIC - Machine learning model training

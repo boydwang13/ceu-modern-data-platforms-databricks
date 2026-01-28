@@ -60,7 +60,7 @@ events_df.printSchema()
 # MAGIC - Filter for rows where **`device`** is **`macOS`**
 # MAGIC - Sort rows by **`event_timestamp`**
 # MAGIC
-# MAGIC <img src="https://files.training.databricks.com/images/icon_hint_32.png" alt="Hint"> Use single and double quotes in your filter SQL expression
+# MAGIC 💡 Use single and double quotes in your filter SQL expression
 
 # COMMAND ----------
 

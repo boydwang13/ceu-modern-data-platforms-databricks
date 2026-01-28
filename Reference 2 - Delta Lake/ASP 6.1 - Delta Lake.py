@@ -270,7 +270,7 @@ display(df)
 # MAGIC
 # MAGIC Replace the timestamp string with the information from your version history. 
 # MAGIC
-# MAGIC <img src="https://files.training.databricks.com/images/icon_note_32.png"> Note: You can use a date without the time information if necessary.
+# MAGIC 📝 Note: You can use a date without the time information if necessary.
 
 # COMMAND ----------
 
