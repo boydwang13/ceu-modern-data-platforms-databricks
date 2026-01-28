@@ -1,5 +1,4 @@
 # Databricks notebook source
-# MAGIC
 # MAGIC %md
 # MAGIC
 # MAGIC
@@ -169,7 +168,7 @@ print(spark.conf.get("spark.sql.shuffle.partitions"))
 # MAGIC
 # MAGIC ### Adaptive Query Execution
 # MAGIC
-# MAGIC <img src="https://files.training.databricks.com/images/aspwd/partitioning_aqe.png" width="60%" />
+# MAGIC <img src="https://dbx-data-public.s3.amazonaws.com/images/aqe.jpeg" width="60%" />
 # MAGIC
 # MAGIC In Spark 3, <a href="https://spark.apache.org/docs/latest/sql-performance-tuning.html#adaptive-query-execution" target="_blank">AQE</a> is now able to <a href="https://databricks.com/blog/2020/05/29/adaptive-query-execution-speeding-up-spark-sql-at-runtime.html" target="_blank"> dynamically coalesce shuffle partitions</a> at runtime. This means that you can set **`spark.sql.shuffle.partitions`** based on the largest data set your application processes and allow AQE to reduce the number of partitions automatically when there is less data to process.
 # MAGIC

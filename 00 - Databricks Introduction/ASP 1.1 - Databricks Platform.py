@@ -129,7 +129,7 @@ displayHTML(html)
 # MAGIC }
 # MAGIC ```
 # MAGIC
-# MAGIC ![Spark Logo](https://files.training.databricks.com/images/Apache-Spark-Logo_TM_200px.png)
+# MAGIC ![Spark Logo](https://dbx-data-public.s3.amazonaws.com/images/spark-logo.png)
 # MAGIC
 # MAGIC | Element         | Markdown Syntax |
 # MAGIC |-----------------|-----------------|

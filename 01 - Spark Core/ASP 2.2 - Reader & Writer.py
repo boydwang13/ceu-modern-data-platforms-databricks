@@ -1,5 +1,4 @@
 # Databricks notebook source
-# MAGIC
 # MAGIC %md
 # MAGIC
 # MAGIC
@@ -272,8 +271,6 @@ events_df.write.mode("overwrite").saveAsTable("events")
 # MAGIC In almost all cases, the best practice is to use Delta Lake format, especially whenever the data will be referenced from a Databricks workspace. 
 # MAGIC
 # MAGIC <a href="https://delta.io/" target="_blank">Delta Lake</a> is an open source technology designed to work with Spark to bring reliability to data lakes.
-# MAGIC
-# MAGIC ![delta](https://files.training.databricks.com/images/aspwd/delta_storage_layer.png)
 # MAGIC
 # MAGIC #### Delta Lake's Key Features
 # MAGIC - ACID transactions
