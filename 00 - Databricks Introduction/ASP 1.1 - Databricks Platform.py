@@ -68,7 +68,7 @@ print("Run python")
 # COMMAND ----------
 
 # MAGIC %sql
-# MAGIC select "Run SQL"
+# MAGIC SELECT "Run SQL"
 
 # COMMAND ----------
 
@@ -95,7 +95,7 @@ print("Run python")
 
 # COMMAND ----------
 
-html = """<h1 style="color:orange;text-align:center;font-family:Courier">Render HTML</h1>"""
+html = """<h1 style="color:orange;text-align:center;font-family:Courier">This is a <pre>HTML</pre> output</h1>"""
 displayHTML(html)
 
 # COMMAND ----------
@@ -160,8 +160,7 @@ displayHTML(html)
 # MAGIC Run file system commands on DBFS using the magic command: **`%fs`**
 # MAGIC
 # MAGIC <br/>
-# MAGIC <img src="https://files.training.databricks.com/images/icon_hint_24.png"/>
-# MAGIC Replace the instances of <strong>FILL_IN</strong> in the cells below with your email address:
+# MAGIC 💡Replace the instances of <strong>FILL_IN</strong> in the cells below with your email address:
 
 # COMMAND ----------
 
