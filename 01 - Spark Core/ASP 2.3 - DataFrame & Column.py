@@ -352,18 +352,6 @@ display(decrease_sessions_df)
 
 # COMMAND ----------
 
-# MAGIC
-# MAGIC %md
-# MAGIC
-# MAGIC
-# MAGIC ### Clean up classroom
-
-# COMMAND ----------
-
-cleanup()
-
-# COMMAND ----------
-
 # MAGIC %md
 # MAGIC Licence: <a target='_blank' href='https://github.com/databricks-academy/apache-spark-programming-with-databricks/blob/published/LICENSE'>Creative Commons Zero v1.0 Universal</a>
 # MAGIC Apache, Apache Spark, Spark and the Spark logo are trademarks of the <a href="https://www.apache.org/">Apache Software Foundation</a>.<br/>

@@ -46,7 +46,7 @@ display(events_df)
 
 # COMMAND ----------
 
-delta_path = f"{DA.paths.working_dir}/delta-events"
+delta_path = f"{DA.paths.workdir}/delta-events"
 events_df.write.format("delta").mode("overwrite").save(delta_path)
 
 # COMMAND ----------
@@ -276,7 +276,7 @@ display(df)
 
 # TODO
 
-time_stamp_string = <FILL_IN>
+time_stamp_string = "2019-10-26"
 df = spark.read.format("delta").option("timestampAsOf", time_stamp_string).load(delta_path)
 display(df)
 
@@ -353,15 +353,6 @@ display(dbutils.fs.ls(delta_path + "/state=CA/"))
 
 # df = spark.read.format("delta").option("versionAsOf", 0).load(delta_path)
 # display(df)
-
-# COMMAND ----------
-
-# MAGIC
-# MAGIC %md
-# MAGIC
-# MAGIC
-# MAGIC
-# MAGIC ### Clean up classroom
 
 # COMMAND ----------
 

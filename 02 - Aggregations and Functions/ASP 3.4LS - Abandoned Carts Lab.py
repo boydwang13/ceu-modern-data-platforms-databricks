@@ -190,7 +190,7 @@ assert suite.passed, "One or more tests failed."
 # COMMAND ----------
 
 # TODO
-carts_df = events_df.withColumn("items", explode("items")).groupBy("user_id").agg(collect_list("items.item_id").alias("cart"))
+carts_df = events_df.withColumn("items", explode("items")).groupBy("user_id").agg(collect_set("items.item_id").alias("cart"))
 display(carts_df)
 
 # COMMAND ----------
@@ -409,19 +409,6 @@ suite.test_equals(
 
 # Display results
 assert suite.passed, "One or more tests failed."
-
-# COMMAND ----------
-
-# MAGIC
-# MAGIC %md
-# MAGIC
-# MAGIC
-# MAGIC ### Clean up classroom
-
-# COMMAND ----------
-
-# Clean up resources at the end of the notebook
-cleanup()
 
 # COMMAND ----------
 

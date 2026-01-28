@@ -60,10 +60,10 @@ display(files)
 # MAGIC
 # MAGIC
 # MAGIC ### 3. Create views below from files in DBFS
-# MAGIC - Create the **`users`** table using the delta file's location **`s3a://dbx-data-public/v03/ecommerce/users/users.delta`**
-# MAGIC - Create the **`sales`** table using the spark-context variable **`s3a://dbx-data-public/v03/ecommerce/sales/sales.delta`**
-# MAGIC - Create the **`products`** table using the spark-context variable **`s3a://dbx-data-public/v03/products/products.delta`** (! different folder)
-# MAGIC - Create the **`events`** table using the spark-context variable **`s3a://dbx-data-public/v03/ecommerce/events/events.delta`**
+# MAGIC - Create the **`users`** view using the delta file's location **`s3a://dbx-data-public/v03/ecommerce/users/users.delta`**
+# MAGIC - Create the **`sales`** view using the spark-context variable **`s3a://dbx-data-public/v03/ecommerce/sales/sales.delta`**
+# MAGIC - Create the **`products`** view using the spark-context variable **`s3a://dbx-data-public/v03/products/products.delta`** (! different folder)
+# MAGIC - Create the **`events`** view using the spark-context variable **`s3a://dbx-data-public/v03/ecommerce/events/events.delta`**
 # MAGIC
 # MAGIC 💡 Hint: We've already created the **`events`** view in the previous notebook. Use `CREATE VIEW IF NOT EXISTS`
 
@@ -79,7 +79,7 @@ display(files)
 # MAGIC
 # MAGIC
 # MAGIC
-# MAGIC Use the _Catalog_ tab of the workspace UI to confirm your tables were created.
+# MAGIC Use the _Catalog_ tab of the workspace UI to confirm your views were created.
 
 # COMMAND ----------
 
@@ -172,7 +172,7 @@ display(files)
 # MAGIC | event_timestamp | long | event time recorded as microseconds since epoch |
 # MAGIC | event_previous_timestamp | long | time of previous event in microseconds since epoch |
 # MAGIC | event_name | string | name of events as registered in clickstream tracker |
-# MAGIC | items (item_id, item_name, price_in_usd, quantity, item_revenue in usd, coupon)| array | an array of structs for each unique item in the user’s cart |
+# MAGIC | items (item_id, item_name, price_in_usd, quantity, item_revenue_in_usd, coupon)| array | an array of structs for each unique item in the user’s cart |
 # MAGIC | ecommerce (total_item_quantity, unique_items, purchase_revenue_in_usd)  |  struct  | purchase data (this field is only non-null in those events that correspond to a sales finalization) |
 # MAGIC
 # MAGIC Execute a SQL query that selects distinct values in **`event_name`** from the **`events`** table
@@ -183,18 +183,6 @@ display(files)
 
 # MAGIC %sql
 # MAGIC -- TODO
-
-# COMMAND ----------
-
-# MAGIC
-# MAGIC %md
-# MAGIC
-# MAGIC
-# MAGIC ### Clean up classroom
-
-# COMMAND ----------
-
-cleanup()
 
 # COMMAND ----------
 

@@ -9,8 +9,8 @@
 # MAGIC
 # MAGIC ##### Tasks
 # MAGIC 1. Read with infer schema
-# MAGIC 3. Read with schema as DDL formatted string
-# MAGIC 4. Write using Delta format
+# MAGIC 2. Read with schema as DDL formatted string
+# MAGIC 3. Write using Delta format
 
 # COMMAND ----------
 
@@ -52,7 +52,7 @@ products_df.printSchema()
 # COMMAND ----------
 
 assert(products_df.count() == 12)
-print("All test pass")
+print("All tests pass")
 
 # COMMAND ----------
 
@@ -65,7 +65,7 @@ print("All test pass")
 # COMMAND ----------
 
 # TODO
-ddl_schema = "item_d: string, name: string, price: double"
+ddl_schema = "item_id: string, name: string, price: double"
 
 products_df3 = spark.read.csv(products_csv_path, header=True, schema=ddl_schema)
 
@@ -81,7 +81,7 @@ products_df3 = spark.read.csv(products_csv_path, header=True, schema=ddl_schema)
 # COMMAND ----------
 
 assert(products_df3.count() == 12)
-print("All test pass")
+print("All tests pass")
 
 # COMMAND ----------
 
@@ -96,7 +96,7 @@ print("All test pass")
 # COMMAND ----------
 
 # TODO
-products_output_path = f"{DA.paths.working_dir}/delta/products"
+products_output_path = f"{DA.paths.workdir}/delta/products"
 (products_df.write.format("delta")
    .mode("overwrite")
    .save(products_output_path)
@@ -125,19 +125,7 @@ for f in verify_files:
 assert verify_delta_format, "Data not written in Delta format"
 assert verify_num_data_files > 0, "No data written"
 del verify_files, verify_delta_format, verify_num_data_files
-print("All test pass")
-
-# COMMAND ----------
-
-# MAGIC
-# MAGIC %md
-# MAGIC
-# MAGIC
-# MAGIC ### Clean up classroom
-
-# COMMAND ----------
-
-cleanup()
+print("All tests pass")
 
 # COMMAND ----------
 

@@ -1,4 +1,8 @@
 # Databricks notebook source
+# MAGIC %run ./Includes/Classroom-Setup
+
+# COMMAND ----------
+
 # MAGIC %md # Distributed Count Example
 
 # COMMAND ----------
@@ -19,7 +23,7 @@ max_bytes_in_part = spark.conf.get('spark.sql.files.maxPartitionBytes')
 print(f"Max bytes in a partition: {max_bytes_in_part}")
 
 max_mib_in_part = int(spark.conf.get('spark.sql.files.maxPartitionBytes')[:-1]) / 1024 / 1024  
-print(f"This is {max_mib_in_part} negabytes")
+print(f"This is {max_mib_in_part} megabytes")
 
 # COMMAND ----------
 
@@ -31,7 +35,7 @@ print(f"Number of cores: {spark.sparkContext.defaultParallelism}")
 
 # COMMAND ----------
 
-file_path = "s3a://dbx-data-public/v03/ecommerce/events/events-1m.json/part-00000-tid-6289868722686892311-494bee2e-042e-46ab-b686-556a5ad5e3c1-2347-1-c000.json"
+file_path = f"{SOURCE_LOCATION}/ecommerce/events/events-1m.json/part-00000-tid-6289868722686892311-494bee2e-042e-46ab-b686-556a5ad5e3c1-2347-1-c000.json"
 
 # COMMAND ----------
 

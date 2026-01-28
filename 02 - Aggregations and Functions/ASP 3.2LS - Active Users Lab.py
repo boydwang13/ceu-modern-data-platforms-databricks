@@ -75,7 +75,7 @@ expected1a = StructType([StructField("user_id", StringType(), True),
 result1a = datetime_df.schema
 
 assert expected1a == result1a, "datetime_df does not have the expected schema"
-print("All test pass")
+print("All tests pass")
 
 # COMMAND ----------
 
@@ -85,7 +85,7 @@ expected1b = datetime.date(2020, 6, 19)
 result1b = datetime_df.sort("date").first().date
 
 assert expected1b == result1b, "datetime_df does not have the expected date values"
-print("All test pass")
+print("All tests pass")
 
 # COMMAND ----------
 
@@ -128,7 +128,7 @@ expected2a = StructType([StructField("date", DateType(), True),
 result2a = active_users_df.schema
 
 assert expected2a == result2a, "active_users_df does not have the expected schema"
-print("All test pass")
+print("All tests pass")
 
 # COMMAND ----------
 
@@ -137,7 +137,7 @@ expected2b = [(datetime.date(2020, 6, 19), 251573), (datetime.date(2020, 6, 20),
 result2b = [(row.date, row.active_users) for row in active_users_df.orderBy("date").take(5)]
 
 assert expected2b == result2b, "active_users_df does not have the expected values"
-print("All test pass")
+print("All tests pass")
 
 # COMMAND ----------
 
@@ -178,7 +178,7 @@ expected3a = StructType([StructField("day", StringType(), True),
 result3a = active_dow_df.schema
 
 assert expected3a == result3a, "active_dow_df does not have the expected schema"
-print("All test pass")
+print("All tests pass")
 
 # COMMAND ----------
 
@@ -187,19 +187,7 @@ expected3b = [("Fri", 247180.66666666666), ("Mon", 238195.5), ("Sat", 278482.0),
 result3b = [(row.day, row.avg_users) for row in active_dow_df.sort("day").collect()]
 
 assert expected3b == result3b, "active_dow_df does not have the expected values"
-print("All test pass")
-
-# COMMAND ----------
-
-# MAGIC
-# MAGIC %md
-# MAGIC
-# MAGIC
-# MAGIC ### Clean up classroom
-
-# COMMAND ----------
-
-cleanup()
+print("All tests pass")
 
 # COMMAND ----------
 

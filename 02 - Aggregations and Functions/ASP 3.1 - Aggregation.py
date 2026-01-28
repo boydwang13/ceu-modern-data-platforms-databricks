@@ -97,7 +97,7 @@ display(event_counts_df)
 # MAGIC
 # MAGIC
 # MAGIC
-# MAGIC Here, we're getting the average purchase revenue for each.
+# MAGIC Here, we're getting the average purchase revenue for each state.
 
 # COMMAND ----------
 
@@ -174,18 +174,6 @@ state_aggregates_df = (df
                       )
 
 display(state_aggregates_df)
-
-# COMMAND ----------
-
-# MAGIC
-# MAGIC %md
-# MAGIC
-# MAGIC
-# MAGIC ### Clean up classroom
-
-# COMMAND ----------
-
-cleanup()
 
 # COMMAND ----------
 

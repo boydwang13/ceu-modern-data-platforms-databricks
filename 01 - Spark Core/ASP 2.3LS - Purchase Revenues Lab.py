@@ -61,7 +61,7 @@ expected1 = [5830.0, 5485.0, 5289.0, 5219.1, 5180.0, 5175.0, 5125.0, 5030.0, 498
 result1 = [row.revenue for row in revenue_df.sort(col("revenue").desc_nulls_last()).limit(10).collect()]
 
 assert(expected1 == result1)
-print("All test pass")
+print("All tests pass")
 
 # COMMAND ----------
 
@@ -89,7 +89,7 @@ display(purchases_df)
 # COMMAND ----------
 
 assert purchases_df.filter(col("revenue").isNull()).count() == 0, "Nulls in 'revenue' column"
-print("All test pass")
+print("All tests pass")
 
 # COMMAND ----------
 
@@ -122,7 +122,7 @@ display(distinct_df)
 # COMMAND ----------
 
 # TODO
-final_df = purchases_df.drop("event_name", "purchases_df")
+final_df = purchases_df.drop("event_name")
 display(final_df)
 
 # COMMAND ----------
@@ -140,7 +140,7 @@ expected_columns = {"device", "ecommerce", "event_previous_timestamp", "event_ti
                     "geo", "items", "revenue", "traffic_source",
                     "user_first_touch_timestamp", "user_id"}
 assert(set(final_df.columns) == expected_columns)
-print("All test pass")
+print("All tests pass")
 
 # COMMAND ----------
 
@@ -157,7 +157,7 @@ print("All test pass")
 final_df = (events_df
   .withColumn("revenue", col("ecommerce.purchase_revenue_in_usd"))
   .filter(col("revenue").isNotNull())
-  .drop("event_name", "purchases_df")
+  .drop("event_name")
 )
 
 display(final_df)
@@ -174,7 +174,7 @@ display(final_df)
 # COMMAND ----------
 
 assert(final_df.count() == 180678)
-print("All test pass")
+print("All tests pass")
 
 # COMMAND ----------
 
@@ -182,20 +182,7 @@ expected_columns = {"device", "ecommerce", "event_previous_timestamp", "event_ti
                     "geo", "items", "revenue", "traffic_source",
                     "user_first_touch_timestamp", "user_id"}
 assert(set(final_df.columns) == expected_columns)
-print("All test pass")
-
-# COMMAND ----------
-
-# MAGIC
-# MAGIC %md
-# MAGIC
-# MAGIC
-# MAGIC
-# MAGIC ### Clean up classroom
-
-# COMMAND ----------
-
-cleanup()
+print("All tests pass")
 
 # COMMAND ----------
 

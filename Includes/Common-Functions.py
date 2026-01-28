@@ -1,17 +1,5 @@
 # Databricks notebook source
 
-# Set Spark configuration parameters so paths can be accessed via SQL
-def setup_spark_conf():
-    """Set Spark config parameters to access paths in SQL queries."""
-    dbutils.widgets.text("sales_path", sales_path)
-    dbutils.widgets.text("users_path", users_path)
-    dbutils.widgets.text("events_path", events_path)
-    dbutils.widgets.text("products_path", products_path)
-    dbutils.widgets.text("working_dir", working_dir)
-
-# COMMAND ----------
-
-
 # Simple validation function to test if operations were successful
 def test_success(condition, success_message, failure_message):
     """Simple test function to validate operations."""
@@ -112,17 +100,17 @@ class SimpleSuite:
 # COMMAND ----------
 
 
-# Simplified function to create working directory
+# Simplified function to create target files folder
 def reset_working_dir():
-    """Reset the working directory."""
+    """Reset the target files folder."""
     try:
-        dbutils.fs.rm(working_dir, True)
+        dbutils.fs.rm(workdir, True)
     except:
         pass
 
     try:
-        dbutils.fs.mkdirs(working_dir)
-        print(f"Created empty working directory: {working_dir}")
+        dbutils.fs.mkdirs(workdir)
+        print(f"Created empty target files folder: {workdir}")
     except:
-        print(f"Failed to create working directory: {working_dir}")
+        print(f"Failed to create target files folder: {workdir}")
 

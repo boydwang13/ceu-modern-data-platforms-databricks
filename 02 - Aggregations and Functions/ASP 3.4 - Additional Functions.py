@@ -109,7 +109,7 @@ print(sales_df.na.drop().count())
 # MAGIC %md
 # MAGIC
 # MAGIC
-# MAGIC Since the row counts are the same, we have the no null columns.  We'll need to explode items to find some nulls in columns such as items.coupon.
+# MAGIC Since the row counts are the same, we have no null columns.  We'll need to explode items to find some nulls in columns such as items.coupon.
 
 # COMMAND ----------
 
@@ -171,12 +171,6 @@ display(users_df)
 
 joined_df = gmail_accounts.join(other=users_df, on='email', how = "inner")
 display(joined_df)
-
-# COMMAND ----------
-
-cleanup()
-
-# COMMAND ----------
 
 # MAGIC %md
 # MAGIC Licence: <a target='_blank' href='https://github.com/databricks-academy/apache-spark-programming-with-databricks/blob/published/LICENSE'>Creative Commons Zero v1.0 Universal</a>

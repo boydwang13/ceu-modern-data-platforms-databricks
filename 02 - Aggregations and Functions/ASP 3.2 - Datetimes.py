@@ -54,7 +54,7 @@ display(df)
 # MAGIC | **`add_months`** | Returns the date that is numMonths after startDate |
 # MAGIC | **`current_timestamp`** | Returns the current timestamp at the start of query evaluation as a timestamp column |
 # MAGIC | **`date_format`** | Converts a date/timestamp/string to a value of string in the format specified by the date format given by the second argument. |
-# MAGIC | **`dayofweek`** | Extracts the day of the month as an integer from a given date/timestamp/string |
+# MAGIC | **`dayofweek`** | Extracts the day of the week as an integer from a given date/timestamp/string |
 # MAGIC | **`from_unixtime`** | Converts the number of seconds from unix epoch (1970-01-01 00:00:00 UTC) to a string representing the timestamp of that moment in the current system time zone in the yyyy-MM-dd HH:mm:ss format |
 # MAGIC | **`minute`** | Extracts the minutes as an integer from a given date/timestamp/string. |
 # MAGIC | **`unix_timestamp`** | Converts time string with given pattern to Unix timestamp (in seconds) |
@@ -225,18 +225,6 @@ plus_2_df = timestamp_df.withColumn(
     "plus_two_days", date_add(col("event_timestamp"), 2)
 )
 display(plus_2_df)
-
-# COMMAND ----------
-
-# MAGIC
-# MAGIC %md
-# MAGIC
-# MAGIC
-# MAGIC ### Clean up classroom
-
-# COMMAND ----------
-
-cleanup()
 
 # COMMAND ----------
 

@@ -80,7 +80,7 @@ test_df = traffic_df.sort("traffic_source").select(round("total_rev", 4).alias("
 result1 = [(row.total_rev, row.avg_rev) for row in test_df.collect()]
 
 assert(expected1 == result1)
-print("All test pass")
+print("All tests pass")
 
 # COMMAND ----------
 
@@ -115,19 +115,7 @@ test_df = top_traffic_df.select(round("total_rev", 4).alias("total_rev"), round(
 result2 = [(row.total_rev, row.avg_rev) for row in test_df.collect()]
 
 assert(expected2 == result2)
-print("All test pass")
-
-# COMMAND ----------
-
-# MAGIC
-# MAGIC %md
-# MAGIC
-# MAGIC
-# MAGIC ### Clean up classroom
-
-# COMMAND ----------
-
-cleanup()
+print("All tests pass")
 
 # COMMAND ----------
 

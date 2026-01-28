@@ -149,7 +149,7 @@ from pyspark.sql.types import (ArrayType, DoubleType, IntegerType, LongType,
 user_defined_schema = StructType([
     StructField("device", StringType(), True),
     StructField("ecommerce", StructType([
-        StructField("purchaseRevenue", DoubleType(), True),
+        StructField("purchase_revenue_in_usd", DoubleType(), True),
         StructField("total_item_quantity", LongType(), True),
         StructField("unique_items", LongType(), True)
     ]), True),
@@ -215,7 +215,7 @@ events_df = (spark
 
 # COMMAND ----------
 
-users_output_dir = f"{DA.paths.working_dir}/users.parquet"
+users_output_dir = f"{DA.paths.workdir}/users.parquet"
 
 (users_df
  .write
@@ -294,7 +294,7 @@ events_df.write.mode("overwrite").saveAsTable("events")
 
 # COMMAND ----------
 
-events_output_path = f"{DA.paths.working_dir}/delta/events"
+events_output_path = f"{DA.paths.workdir}/delta/events"
 
 (events_df
  .write
@@ -302,18 +302,6 @@ events_output_path = f"{DA.paths.working_dir}/delta/events"
  .mode("overwrite")
  .save(events_output_path)
 )
-
-# COMMAND ----------
-
-# MAGIC
-# MAGIC %md
-# MAGIC
-# MAGIC
-# MAGIC ### Clean up classroom
-
-# COMMAND ----------
-
-cleanup()
 
 # COMMAND ----------
 

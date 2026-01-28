@@ -14,7 +14,7 @@
 # MAGIC ##### Methods
 # MAGIC - <a href="https://spark.apache.org/docs/latest/api/python/reference/pyspark.sql/spark_session.html" target="_blank">SparkSession</a>: **`sql`**, **`table`**
 # MAGIC - <a href="https://spark.apache.org/docs/latest/api/python/reference/pyspark.sql/dataframe.html" target="_blank">DataFrame</a> transformations: **`select`**, **`where`**, **`orderBy`**
-# MAGIC - <a href="https://spark.apache.org/docs/latest/api/python/reference/api/pyspark.sql.DataFrame.html" target="_blank">DataFrame</a> actions: **`select`**, **`count`**, **`take`**
+# MAGIC - <a href="https://spark.apache.org/docs/latest/api/python/reference/api/pyspark.sql.DataFrame.html" target="_blank">DataFrame</a> actions: **`count`**, **`take`**
 # MAGIC - Other <a href="https://spark.apache.org/docs/latest/api/python/reference/pyspark.sql/dataframe.html" target="_blank">DataFrame</a> methods: **`printSchema`**, **`schema`**, **`createOrReplaceTempView`**
 
 # COMMAND ----------
@@ -98,7 +98,7 @@ from pyspark.sql import Row
 assert(num_rows == 1938215)
 assert(len(rows) == 5)
 assert(type(rows[0]) == Row)
-print("All test pass")
+print("All tests pass")
 
 # COMMAND ----------
 
@@ -125,7 +125,7 @@ display(mac_sql_df)
 # MAGIC
 # MAGIC
 # MAGIC
-# MAGIC # MAGIC **5.1: CHECK YOUR WORK**
+# MAGIC **5.1: CHECK YOUR WORK**
 # MAGIC - You should only see **`macOS`** values in the **`device`** column
 # MAGIC - The fifth row should be an event with timestamp **`1592539226602157`**
 
@@ -135,7 +135,7 @@ verify_rows = mac_sql_df.take(5)
 assert (mac_sql_df.select("device").distinct().count() == 1 and len(verify_rows) == 5 and verify_rows[0]['device'] == "macOS"), "Incorrect filter condition"
 assert (verify_rows[4]['event_timestamp'] == 1592539226602157), "Incorrect sorting"
 del verify_rows
-print("All test pass")
+print("All tests pass")
 
 # COMMAND ----------
 

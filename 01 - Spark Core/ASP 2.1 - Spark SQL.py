@@ -302,7 +302,7 @@ budget_df.printSchema()
 # MAGIC | show | Displays the top n rows of DataFrame in a tabular form |
 # MAGIC | count | Returns the number of rows in the DataFrame |
 # MAGIC | describe,  summary | Computes basic statistics for numeric and string columns |
-# MAGIC | first, head | Returns the the first row |
+# MAGIC | first, head | Returns the first row |
 # MAGIC | collect | Returns an array that contains all rows in this DataFrame |
 # MAGIC | take | Returns an array of the first n rows in the DataFrame |
 
@@ -324,7 +324,7 @@ budget_df.count()
 # MAGIC %md
 # MAGIC
 # MAGIC
-# MAGIC **`take(n)`** returns an the first `n` rows of a Dataframe.
+# MAGIC **`take(n)`** returns the first `n` rows of a DataFrame.
 
 # COMMAND ----------
 
@@ -365,18 +365,6 @@ budget_df.createOrReplaceTempView("budget")
 # COMMAND ----------
 
 display(spark.sql("SELECT * FROM budget"))
-
-# COMMAND ----------
-
-# MAGIC
-# MAGIC %md
-# MAGIC
-# MAGIC
-# MAGIC ### Classroom Cleanup
-
-# COMMAND ----------
-
-cleanup()
 
 # COMMAND ----------
 

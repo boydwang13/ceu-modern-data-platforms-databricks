@@ -60,7 +60,7 @@ dbutils.fs.head(f"{DA.paths.datasets}/people/people-with-dups.txt")
 # ANSWER
 
 source_file = f"{DA.paths.datasets}/people/people-with-dups.txt"
-delta_dest_dir = f"{DA.paths.working_dir}/people"
+delta_dest_dir = f"{DA.paths.workdir}/people"
 
 # In case it already exists
 dbutils.fs.rm(delta_dest_dir, True)
@@ -138,16 +138,7 @@ verify_record_count = spark.read.format("delta").load(delta_dest_dir).count()
 assert verify_record_count == 100000, "Expected 100000 records in final result"
 
 del verify_files, verify_delta_format, verify_num_data_files, verify_record_count
-print("All test pass")
-
-# COMMAND ----------
-
-# MAGIC
-# MAGIC %md
-# MAGIC
-# MAGIC
-# MAGIC ## Clean up classroom
-# MAGIC Run the cell below to clean up resources.
+print("All tests pass")
 
 # COMMAND ----------
 

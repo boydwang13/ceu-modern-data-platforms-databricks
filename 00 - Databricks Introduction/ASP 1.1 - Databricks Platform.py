@@ -219,7 +219,7 @@ display(files)
 # MAGIC
 # MAGIC ## Our First Table
 # MAGIC
-# MAGIC Is located in the path identfied by **`DA.paths.events`** (a variable we created for you).
+# MAGIC Is located in the path identified by **`DA.paths.events`** (a variable we created for you).
 # MAGIC
 # MAGIC We can see those files by running the following cell
 
@@ -237,9 +237,9 @@ display(files)
 # MAGIC
 # MAGIC 📝 In the above example we use **`whatever.`** to give our variable a "namespace".
 # MAGIC
-# MAGIC This is so that we don't accidently step over other configuration parameters.
+# MAGIC This is so that we don't accidentally step over other configuration parameters.
 # MAGIC
-# MAGIC You will see throughout this course our usage of the "DA" namesapce as in **`DA.paths.some_file`**
+# MAGIC You will see throughout this course our usage of the "DA" namespace as in **`DA.paths.some_file`**
 
 # COMMAND ----------
 

@@ -1,8 +1,8 @@
 # Databricks notebook source
 # Input data and working folders locations
 MY_VOLUME="/Volumes/dbx_course/source/files"
-SOURCE_LOCATION=f"{MY_VOLUME}/source/"
-TARGET_FOLDER=f"{MY_VOLUME}/target/"
+SOURCE_LOCATION=f"{MY_VOLUME}/source"
+TARGET_LOCATION=f"{MY_VOLUME}/target"
 # Define paths for data access
 
 # Core data paths
@@ -12,7 +12,7 @@ events_path = f"{SOURCE_LOCATION}/ecommerce/events/events.delta"
 products_path = f"{SOURCE_LOCATION}/products/products.delta"
 
 # Working directories - for lab exercises
-working_dir = f"{MY_VOLUME}/target"
+workdir = "/Volumes/dbx_course/target/files"
 
 
 # COMMAND ----------
@@ -21,7 +21,7 @@ from types import SimpleNamespace
 DA = SimpleNamespace(
     paths = SimpleNamespace(
         datasets = MY_VOLUME,
-        working_dir=working_dir,
+        workdir=workdir,
         sales=sales_path,
         events=events_path,
         users=users_path,
@@ -87,11 +87,6 @@ except:
 
 # COMMAND ----------
 
-# Set up spark configuration for SQL access to data paths
-setup_spark_conf()
-
-# COMMAND ----------
-
 # Reset working directory for lab exercises
 reset_working_dir()
 
@@ -100,10 +95,11 @@ reset_working_dir()
 displayHTML("✅ Classroom setup complete! 🎉")
 displayHTML(f"<br/>")
 displayHTML(f"✅ Catalog 'dbx_course' present")
-displayHTML(f"✅ Working directory present: {TARGET_FOLDER} - Path stored in variable <pre>working_dir</pre> 📁")
 displayHTML(f"<br/>")
-displayHTML(f"Data paths:")
-displayHTML(f"- Users data: {users_path}")
-displayHTML(f"- Events data: {events_path}")
-displayHTML(f"- Products data: {products_path}")
-displayHTML(f"- Sales data: {sales_path}")
+displayHTML(f"<b>Available paths via DA.paths:</b>")
+displayHTML(f"<pre>DA.paths.datasets</pre> → {DA.paths.datasets}")
+displayHTML(f"<pre>DA.paths.workdir</pre> → {DA.paths.workdir}")
+displayHTML(f"<pre>DA.paths.users</pre> → {DA.paths.users}")
+displayHTML(f"<pre>DA.paths.events</pre> → {DA.paths.events}")
+displayHTML(f"<pre>DA.paths.products</pre> → {DA.paths.products}")
+displayHTML(f"<pre>DA.paths.sales</pre> → {DA.paths.sales}")

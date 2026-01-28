@@ -19,7 +19,7 @@
 # COMMAND ----------
 
 sales_df = spark.read.parquet(f"{DA.paths.datasets}/ecommerce/sales/sales.parquet")
-delta_sales_path = f"{DA.paths.working_dir}/delta-sales"
+delta_sales_path = f"{DA.paths.workdir}/delta-sales"
 
 # COMMAND ----------
 
@@ -79,7 +79,7 @@ display(updated_sales_df)
 from pyspark.sql.types import IntegerType
 
 assert updated_sales_df.schema[6].dataType == IntegerType()
-print("All test pass")
+print("All tests pass")
 
 # COMMAND ----------
 
@@ -109,7 +109,7 @@ updated_sales_df.FILL_IN
 # COMMAND ----------
 
 assert spark.read.format("delta").load(delta_sales_path).schema[6].dataType == IntegerType()
-print("All test pass")
+print("All tests pass")
 
 # COMMAND ----------
 
@@ -147,7 +147,7 @@ print("All test pass")
 sales_delta_df = spark.sql("SELECT * FROM sales_delta")
 assert sales_delta_df.count() == 210370
 assert sales_delta_df.schema[6].dataType == IntegerType()
-print("All test pass")
+print("All tests pass")
 
 # COMMAND ----------
 
@@ -176,16 +176,10 @@ display(old_sales_df)
 
 # COMMAND ----------
 
+from pyspark.sql.functions import col, size
+
 assert old_sales_df.select(size(col("items"))).first()[0] == 1
-print("All test pass")
-
-# COMMAND ----------
-
-# MAGIC
-# MAGIC %md
-# MAGIC
-# MAGIC
-# MAGIC ### Clean up classroom
+print("All tests pass")
 
 # COMMAND ----------
 

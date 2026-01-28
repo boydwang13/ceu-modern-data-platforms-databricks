@@ -1,5 +1,5 @@
 # Databricks notebook source
-# MAGIC %run ./_common
+# MAGIC %run ./Common-Functions
 
 # COMMAND ----------
 
@@ -41,14 +41,10 @@ except:
 
 # COMMAND ----------
 
-setup_spark_conf()
-
-# COMMAND ----------
-
 displayHTML("✅ Classroom setup complete! 🎉")
 displayHTML(f"<br/>")
 displayHTML(f"✅ Created database 'ceu'")
 displayHTML(f"<br/>")
-displayHTML(f"✅ Created views: users, sales, product, events")
+displayHTML(f"✅ Created views: users, sales, products, events")
 
 
