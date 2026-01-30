@@ -160,10 +160,12 @@ displayHTML(html)
 # MAGIC Run file system commands on DBFS using the magic command: **`%fs`**
 # MAGIC
 # MAGIC <br/>
+# MAGIC
+# MAGIC ⚠️ Remove the `#` from the next cell to execute the command
 
 # COMMAND ----------
 
-# MAGIC %fs ls dbfs:/Volumes/dbx_course/source/files
+#%fs ls dbfs:/Volumes/dbx_course/source/files
 
 # COMMAND ----------
 

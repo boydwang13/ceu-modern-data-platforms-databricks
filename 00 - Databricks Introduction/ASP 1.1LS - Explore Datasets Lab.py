@@ -30,10 +30,12 @@
 # MAGIC Use a magic command to display files located in the DBFS directory: **`/`**
 # MAGIC
 # MAGIC 💡 You should see several directories.
+# MAGIC
+# MAGIC ⚠️ Remove the `#` from the next cell to execute the command
 
 # COMMAND ----------
 
-# MAGIC %fs ls /
+#%fs ls /
 
 # COMMAND ----------
 
