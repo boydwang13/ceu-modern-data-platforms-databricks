@@ -27,13 +27,15 @@
 # MAGIC
 # MAGIC
 # MAGIC ### 1. List files in DBFS using magic commands
-# MAGIC Use a magic command to display files located in the DBFS directory: **`/`**
+# MAGIC Use a magic command to display files located in the DBFS directory: **`/Volumes/dbx_course/source/files`**
 # MAGIC
 # MAGIC 💡 You should see several directories.
+# MAGIC
+# MAGIC ⚠️ Remove the `#` from the next cell to execute the command
 
 # COMMAND ----------
 
-# <FILL_IN>
+# %fs ls /Volumes/dbx_course/source/files
 
 # COMMAND ----------
 
@@ -45,12 +47,12 @@
 # MAGIC - Use **`dbutils`** to get the files at the directory above and assign it to the variable **`files`**
 # MAGIC - Use the Databricks display() function to display the contents in **`files`**
 # MAGIC
-# MAGIC 💡 Just as before, you should see several user directories including your own.
+# MAGIC 💡 Just as before, you should see the same directories.
 
 # COMMAND ----------
 
 # TODO
-files = FILL_IN
+files = dbutils.fs.ls("FILL_IN")
 display(files)
 
 # COMMAND ----------
