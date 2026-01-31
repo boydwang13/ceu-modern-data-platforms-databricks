@@ -130,7 +130,7 @@ display(dbutils.fs.ls(f"{delta_path}/_delta_log/"))
 # MAGIC
 # MAGIC The <a href="https://docs.databricks.com/delta/delta-utility.html" target="_blank">four columns</a> each represent a different part of the very first commit to the Delta Table, creating the table.
 # MAGIC - The **`add`** column has statistics about the DataFrame as a whole and individual columns.
-# MAGIC - The **`commitInfo`** column has useful information about what the operation was (WRITE or READ) and who executed the operation.
+# MAGIC - The **`commitInfo`** column has useful information about what the operation was (WRITE, UPDATE, DELETE, etc.) and who executed the operation.
 # MAGIC - The **`metaData`** column contains information about the column schema.
 # MAGIC - The **`protocol`** version contains information about the minimum Delta version necessary to either write or read to this Delta Table.
 
@@ -147,7 +147,7 @@ display(spark.read.json(f"{delta_path}/_delta_log/00000000000000000000.json"))
 # MAGIC
 # MAGIC One key difference between these two transaction logs is the size of the JSON file, this file has 206 rows compared to the previous 7.
 # MAGIC
-# MAGIC To understand why, let's take a look at the **`commitInfo`** column. We can see that in the **`operationParameters`** section, **`partitionBy`** has been filled in by the **`state`** column. Furthermore, if we look at the add section on row 3, we can see that a new section called **`partitionValues`** has appeared. As we saw above, Delta stores partitions separately in memory, however, it stores information about these partitions in the same transaction log file.
+# MAGIC To understand why, let's take a look at the **`commitInfo`** column. We can see that in the **`operationParameters`** section, **`partitionBy`** has been filled in by the **`state`** column. Furthermore, if we look at the add section on row 3, we can see that a new section called **`partitionValues`** has appeared. As we saw above, Delta stores partitions separately on disk, however, it stores information about these partitions in the same transaction log file.
 
 # COMMAND ----------
 
@@ -237,13 +237,13 @@ display(dbutils.fs.ls(f"{delta_path}/state=CA/"))
 
 # COMMAND ----------
 
-spark.sql("DROP TABLE IF EXISTS train_delta")
-spark.sql(f"CREATE TABLE train_delta USING DELTA LOCATION '{delta_path}'")
+spark.sql("DROP TABLE IF EXISTS events_delta")
+spark.sql(f"CREATE TABLE events_delta USING DELTA LOCATION '{delta_path}'")
 
 # COMMAND ----------
 
 # MAGIC %sql
-# MAGIC DESCRIBE HISTORY train_delta
+# MAGIC DESCRIBE HISTORY events_delta
 
 # COMMAND ----------
 
@@ -276,7 +276,7 @@ display(df)
 
 # TODO
 
-time_stamp_string = "2019-10-26"
+time_stamp_string = "2026-02-01"
 df = spark.read.format("delta").option("timestampAsOf", time_stamp_string).load(delta_path)
 display(df)
 

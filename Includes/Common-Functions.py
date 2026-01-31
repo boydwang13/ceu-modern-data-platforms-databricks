@@ -49,7 +49,7 @@ class SimpleSuite:
 
     def test_true(self, condition, description):
         """Test if condition is True."""
-        result = condition == True
+        result = bool(condition)
         self.tests.append((description, result))
         if not result:
             self.passed = False
@@ -60,7 +60,7 @@ class SimpleSuite:
 
     def test_false(self, condition, description):
         """Test if condition is False."""
-        result = condition == False
+        result = not bool(condition)
         self.tests.append((description, result))
         if not result:
             self.passed = False
@@ -101,16 +101,19 @@ class SimpleSuite:
 
 
 # Simplified function to create target files folder
+# NOTE: This function is now defined inline in Classroom-Setup.py and Classroom-Setup-SQL.py
+# to avoid the workdir variable scope issue. Keeping this here for backwards compatibility
+# if any other notebook imports it after defining workdir.
 def reset_working_dir():
     """Reset the target files folder."""
     try:
         dbutils.fs.rm(workdir, True)
-    except:
+    except Exception:
         pass
 
     try:
         dbutils.fs.mkdirs(workdir)
         print(f"Created empty target files folder: {workdir}")
-    except:
+    except Exception:
         print(f"Failed to create target files folder: {workdir}")
 

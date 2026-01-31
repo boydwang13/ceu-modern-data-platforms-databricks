@@ -7,7 +7,7 @@
 
 # COMMAND ----------
 
-# MAGIC %md Let's disable the Adaptive Query Executor (More on that later)
+# MAGIC %md Let's disable the Adaptive Query Execution (More on that later)
 
 # COMMAND ----------
 
@@ -22,7 +22,25 @@ spark.conf.set('spark.sql.adaptive.enabled', 'false')
 max_bytes_in_part = spark.conf.get('spark.sql.files.maxPartitionBytes')
 print(f"Max bytes in a partition: {max_bytes_in_part}")
 
-max_mib_in_part = int(spark.conf.get('spark.sql.files.maxPartitionBytes')[:-1]) / 1024 / 1024  
+# Parse the value, handling both numeric strings and strings with suffixes like "128m" or "128MB"
+import re
+match = re.match(r'^(\d+)([a-zA-Z]*)$', max_bytes_in_part)
+if match:
+    value = int(match.group(1))
+    suffix = match.group(2).lower()
+    if suffix in ('', 'b'):
+        max_mib_in_part = value / 1024 / 1024
+    elif suffix in ('k', 'kb'):
+        max_mib_in_part = value / 1024
+    elif suffix in ('m', 'mb'):
+        max_mib_in_part = value
+    elif suffix in ('g', 'gb'):
+        max_mib_in_part = value * 1024
+    else:
+        max_mib_in_part = value / 1024 / 1024  # default to bytes
+else:
+    max_mib_in_part = int(max_bytes_in_part) / 1024 / 1024
+
 print(f"This is {max_mib_in_part} megabytes")
 
 # COMMAND ----------
@@ -35,7 +53,10 @@ print(f"Number of cores: {spark.sparkContext.defaultParallelism}")
 
 # COMMAND ----------
 
-file_path = f"{SOURCE_LOCATION}/ecommerce/events/events-1m.json/part-00000-tid-6289868722686892311-494bee2e-042e-46ab-b686-556a5ad5e3c1-2347-1-c000.json"
+# Get the first JSON file from the directory
+json_dir = f"{SOURCE_LOCATION}/ecommerce/events/events-1m.json/"
+json_files = [f.path for f in dbutils.fs.ls(json_dir) if f.path.endswith('.json')]
+file_path = json_files[0] if json_files else json_dir
 
 # COMMAND ----------
 

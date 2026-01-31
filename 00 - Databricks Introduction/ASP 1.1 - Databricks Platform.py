@@ -163,7 +163,7 @@ displayHTML(html)
 
 # COMMAND ----------
 
-# %fs ls dbfs:/Volumes/dbx_course/source/files
+# %fs ls /Volumes/dbx_course/source/files
 
 # COMMAND ----------
 
@@ -185,7 +185,7 @@ displayHTML(html)
 
 # COMMAND ----------
 
-dbutils.fs.ls("dbfs:/Volumes/dbx_course/source/files")
+dbutils.fs.ls("/Volumes/dbx_course/source/files")
 
 # COMMAND ----------
 
@@ -200,15 +200,6 @@ dbutils.fs.ls("dbfs:/Volumes/dbx_course/source/files")
 
 files = dbutils.fs.ls("/Volumes/dbx_course/source/files")
 display(files)
-
-# COMMAND ----------
-
-# MAGIC
-# MAGIC %md
-# MAGIC
-# MAGIC
-# MAGIC
-# MAGIC Let's take one more look at our temp file...
 
 # COMMAND ----------
 
@@ -235,7 +226,7 @@ display(files)
 # MAGIC
 # MAGIC
 # MAGIC
-# MAGIC 📝 In the above example we use **`whatever.`** to give our variable a "namespace".
+# MAGIC 📝 In the above example we use **`DA.`** to give our variable a "namespace".
 # MAGIC
 # MAGIC This is so that we don't accidentally step over other configuration parameters.
 # MAGIC
@@ -249,14 +240,14 @@ display(files)
 # MAGIC
 # MAGIC
 # MAGIC ## Reading from Delta files
-# MAGIC Run <a href="https://docs.databricks.com/spark/latest/spark-sql/language-manual/index.html#sql-reference" target="_blank">Databricks SQL Commands</a> to read from a delta table on a volume of to create a view/table.
+# MAGIC Run <a href="https://docs.databricks.com/spark/latest/spark-sql/language-manual/index.html#sql-reference" target="_blank">Databricks SQL Commands</a> to read from a delta table on a volume or to create a view/table.
 # MAGIC
 # MAGIC Let's try to select from **`events`** using BedBricks event files on DBFS.
 
 # COMMAND ----------
 
 # MAGIC %sql
-# MAGIC SELECT * FROM delta.`dbfs:/Volumes/dbx_course/source/files/source/ecommerce/events/events.delta/`
+# MAGIC SELECT * FROM delta.`/Volumes/dbx_course/source/files/source/ecommerce/events/events.delta/`
 
 # COMMAND ----------
 
@@ -274,7 +265,7 @@ display(files)
 # COMMAND ----------
 
 # MAGIC %sql
-# MAGIC CREATE VIEW IF NOT EXISTS events AS SELECT * FROM delta.`dbfs:/Volumes/dbx_course/source/files/source/ecommerce/events/events.delta/`
+# MAGIC CREATE VIEW IF NOT EXISTS events AS SELECT * FROM delta.`/Volumes/dbx_course/source/files/source/ecommerce/events/events.delta/`
 
 # COMMAND ----------
 

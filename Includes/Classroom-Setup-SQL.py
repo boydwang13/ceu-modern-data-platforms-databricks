@@ -11,22 +11,22 @@
 
 try:
     spark.sql("DROP VIEW IF EXISTS sales;")
-except:
+except Exception:
     spark.sql("DROP TABLE IF EXISTS sales;")
 
 try:
     spark.sql("DROP VIEW IF EXISTS users;")
-except:
+except Exception:
     spark.sql("DROP TABLE IF EXISTS users;")
 
 try:
     spark.sql("DROP VIEW IF EXISTS products;")
-except:
+except Exception:
     spark.sql("DROP TABLE IF EXISTS products;")
 
 try:
     spark.sql("DROP VIEW IF EXISTS events;")
-except:
+except Exception:
     spark.sql("DROP TABLE IF EXISTS events;")
 
 # COMMAND ----------

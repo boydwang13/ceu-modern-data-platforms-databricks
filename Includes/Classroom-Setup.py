@@ -1,7 +1,7 @@
 # Databricks notebook source
 # Input data and working folders locations
 SOURCE_LOCATION = "/Volumes/dbx_course/source/files/datasets"
-ASIGNMENT_SOURCE_LOCATION = "/Volumes/dbx_course/source/files/assignment"
+ASSIGNMENT_SOURCE_LOCATION = "/Volumes/dbx_course/source/files/assignment"
 TARGET_LOCATION = workdir = "/Volumes/dbx_course/target/files/"
 
 # Core data paths
@@ -50,23 +50,23 @@ import_config = [
 ]
 
 try:
-    dbutils.fs.ls("s3://dbx-class-exercise-datasets/fifa/")
+    dbutils.fs.ls("s3a://dbx-class-exercise-datasets/fifa/")
 
     import_config.append({
-        's3_source': 's3://dbx-class-exercise-datasets/',
-        'copy_target': ASIGNMENT_SOURCE_LOCATION
+        's3_source': 's3a://dbx-class-exercise-datasets/',
+        'copy_target': ASSIGNMENT_SOURCE_LOCATION
     })
-except:
+except Exception:
     print("Exercise datasets not present yet, skipping copy. This is OK.")
 
 for location in import_config:
     try:
-        files = dbutils.fs.ls(location['s3_source'])
+        files = dbutils.fs.ls(location['copy_target'])
         if len(files) > 0:
             print(f"{location['copy_target']} already exists, skipping copy. This is OK.")
         else:
             raise Exception("Empty directory")
-    except:
+    except Exception:
         print(f"Copying data from {location['s3_source']}...")
         dbutils.fs.cp(location['s3_source'], location['copy_target'], recurse=True)
         print(f"Done! files are copied into {location['copy_target']}")
@@ -76,22 +76,22 @@ for location in import_config:
 
 try:
     spark.sql("DROP VIEW IF EXISTS sales;")
-except:
+except Exception:
     spark.sql("DROP TABLE IF EXISTS sales;")
 
 try:
     spark.sql("DROP VIEW IF EXISTS users;")
-except:
+except Exception:
     spark.sql("DROP TABLE IF EXISTS users;")
 
 try:
     spark.sql("DROP VIEW IF EXISTS products;")
-except:
+except Exception:
     spark.sql("DROP TABLE IF EXISTS products;")
 
 try:
     spark.sql("DROP VIEW IF EXISTS events;")
-except:
+except Exception:
     spark.sql("DROP TABLE IF EXISTS events;")
 
 # COMMAND ----------
@@ -101,6 +101,19 @@ except:
 # COMMAND ----------
 
 # Reset working directory for lab exercises
+def reset_working_dir():
+    """Reset the target files folder."""
+    try:
+        dbutils.fs.rm(workdir, True)
+    except Exception:
+        pass
+
+    try:
+        dbutils.fs.mkdirs(workdir)
+        print(f"Created empty target files folder: {workdir}")
+    except Exception:
+        print(f"Failed to create target files folder: {workdir}")
+
 reset_working_dir()
 
 # COMMAND ----------
