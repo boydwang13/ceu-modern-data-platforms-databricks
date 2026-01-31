@@ -1,10 +1,8 @@
 # Databricks notebook source
 # Input data and working folders locations
-SOURCE_LOCATION="/Volumes/dbx_course/source/files/datasets"
-ASIGNMENT_SOURCE_LOCATION="/Volumes/dbx_course/source/files/assignment"
+SOURCE_LOCATION = "/Volumes/dbx_course/source/files/datasets"
+ASIGNMENT_SOURCE_LOCATION = "/Volumes/dbx_course/source/files/assignment"
 TARGET_LOCATION = workdir = "/Volumes/dbx_course/target/files/"
-
-# Define paths for data access
 
 # Core data paths
 sales_path = f"{SOURCE_LOCATION}/ecommerce/sales/sales.delta"
@@ -18,7 +16,7 @@ products_path = f"{SOURCE_LOCATION}/products/products.delta"
 from types import SimpleNamespace
 DA = SimpleNamespace(
     paths = SimpleNamespace(
-        datasets = MY_VOLUME,
+        datasets=SOURCE_LOCATION,
         workdir=workdir,
         sales=sales_path,
         events=events_path,
@@ -107,14 +105,41 @@ reset_working_dir()
 
 # COMMAND ----------
 
-displayHTML("✅ Classroom setup complete! 🎉")
-displayHTML(f"<br/>")
-displayHTML(f"✅ Catalog 'dbx_course' present")
-displayHTML(f"<br/>")
-displayHTML(f"<b>Available paths via DA.paths:</b>")
-displayHTML(f"<pre>DA.paths.datasets</pre> → {DA.paths.datasets}")
-displayHTML(f"<pre>DA.paths.workdir</pre> → {DA.paths.workdir}")
-displayHTML(f"<pre>DA.paths.users</pre> → {DA.paths.users}")
-displayHTML(f"<pre>DA.paths.events</pre> → {DA.paths.events}")
-displayHTML(f"<pre>DA.paths.products</pre> → {DA.paths.products}")
-displayHTML(f"<pre>DA.paths.sales</pre> → {DA.paths.sales}")
+displayHTML("""
+<div style="font-family: sans-serif; padding: 10px;">
+    <h2 style="color: #2e7d32;">✅ Classroom Setup Complete!</h2>
+    <p><strong>Catalog:</strong> <code>dbx_course</code></p>
+
+    <h3>Dataset Locations</h3>
+    <table style="border-collapse: collapse; width: 100%; max-width: 800px;">
+        <tr style="background-color: #f5f5f5;">
+            <th style="text-align: left; padding: 8px; border: 1px solid #ddd;">Dataset</th>
+            <th style="text-align: left; padding: 8px; border: 1px solid #ddd;">Path</th>
+        </tr>
+        <tr>
+            <td style="padding: 8px; border: 1px solid #ddd;"><code>DA.paths.datasets</code></td>
+            <td style="padding: 8px; border: 1px solid #ddd;"><code>""" + DA.paths.datasets + """</code></td>
+        </tr>
+        <tr style="background-color: #f9f9f9;">
+            <td style="padding: 8px; border: 1px solid #ddd;"><code>DA.paths.workdir</code></td>
+            <td style="padding: 8px; border: 1px solid #ddd;"><code>""" + DA.paths.workdir + """</code></td>
+        </tr>
+        <tr>
+            <td style="padding: 8px; border: 1px solid #ddd;"><code>DA.paths.users</code></td>
+            <td style="padding: 8px; border: 1px solid #ddd;"><code>""" + DA.paths.users + """</code></td>
+        </tr>
+        <tr style="background-color: #f9f9f9;">
+            <td style="padding: 8px; border: 1px solid #ddd;"><code>DA.paths.sales</code></td>
+            <td style="padding: 8px; border: 1px solid #ddd;"><code>""" + DA.paths.sales + """</code></td>
+        </tr>
+        <tr>
+            <td style="padding: 8px; border: 1px solid #ddd;"><code>DA.paths.events</code></td>
+            <td style="padding: 8px; border: 1px solid #ddd;"><code>""" + DA.paths.events + """</code></td>
+        </tr>
+        <tr style="background-color: #f9f9f9;">
+            <td style="padding: 8px; border: 1px solid #ddd;"><code>DA.paths.products</code></td>
+            <td style="padding: 8px; border: 1px solid #ddd;"><code>""" + DA.paths.products + """</code></td>
+        </tr>
+    </table>
+</div>
+""")
