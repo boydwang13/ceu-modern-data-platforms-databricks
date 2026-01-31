@@ -2,7 +2,9 @@
 # Input data and working folders locations
 MY_VOLUME="/Volumes/dbx_course/source/files"
 SOURCE_LOCATION=f"{MY_VOLUME}/source"
+ASIGNMENT_SOURCE_LOCATION=f"{MY_VOLUME}/assignment"
 TARGET_LOCATION=f"{MY_VOLUME}/target"
+
 # Define paths for data access
 
 # Core data paths
@@ -40,25 +42,41 @@ DA = SimpleNamespace(
 # MAGIC USE SCHEMA target;
 # MAGIC
 # MAGIC CREATE VOLUME IF NOT EXISTS dbx_course.source.files;
-# MAGIC CREATE VOLUME IF NOT EXISTS dbt_course.source.assignment_files;
 # MAGIC CREATE VOLUME IF NOT EXISTS dbx_course.target.files;
 # MAGIC
 
 # COMMAND ----------
 
-# Check if data already exists before copying
+# Check if data already exists before copying - sources
+import_config = [
+{
+        's3_source': 's3a://dbx-data-public/v03/',
+        'copy_target': SOURCE_LOCATION
+    }
+]
+
 try:
-    files = dbutils.fs.ls(SOURCE_LOCATION)
-    if len(files) > 0:
-        print("Source data already exists, skipping copy")
-    else:
-        raise Exception("Empty directory")
+    dbutils.fs.ls("s3://dbx-class-exercise-datasets/fifa/")
+
+    import_config.append({
+        's3_source': 's3://dbx-class-exercise-datasets/',
+        'copy_target': ASIGNMENT_SOURCE_LOCATION
+    })
 except:
-    print("Copying data from S3...")
-    #spark.conf.set("fs.s3a.bucket.dbx-data-public.aws.credentials.provider", 
-    #               "org.apache.hadoop.fs.s3a.AnonymousAWSCredentialsProvider")
-    dbutils.fs.cp("s3a://dbx-data-public/v03/", SOURCE_LOCATION, recurse=True)
-    print(f"Done! Source files are in {SOURCE_LOCATION}")
+    print("Exercise datasets not present yet, skipping copy. This is OK.")
+
+for location in import_config:
+    try:
+        files = dbutils.fs.ls(location['s3_source'])
+        if len(files) > 0:
+            print(f"{location['copy_target']} already exists, skipping copy. This is OK.")
+        else:
+            raise Exception("Empty directory")
+    except:
+        print(f"Copying data from {location['s3_source']}...")
+        dbutils.fs.cp(location['s3_source'], location['copy_target'], recurse=True)
+        print(f"Done! files are copied into {location['copy_target']}")
+
 
 # COMMAND ----------
 

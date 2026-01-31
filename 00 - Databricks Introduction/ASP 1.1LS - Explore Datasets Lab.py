@@ -27,7 +27,7 @@
 # MAGIC
 # MAGIC
 # MAGIC ### 1. List files in DBFS using magic commands
-# MAGIC Use a magic command to display files located in the DBFS directory: **`/`**
+# MAGIC Use a magic command to display files located in the DBFS directory: **`/Volumes/dbx_course/source/files`**
 # MAGIC
 # MAGIC 💡 You should see several directories.
 # MAGIC
@@ -35,7 +35,7 @@
 
 # COMMAND ----------
 
-# %fs ls /
+# %fs ls /Volumes/dbx_course/source/files
 
 # COMMAND ----------
 
@@ -52,7 +52,7 @@
 # COMMAND ----------
 
 # TODO
-files = dbutils.fs.ls("/")
+files = dbutils.fs.ls("/Volumes/dbx_course/source/files")
 display(files)
 
 # COMMAND ----------

@@ -63,10 +63,6 @@ print("Run default language")
 
 # COMMAND ----------
 
-print("Run python")
-
-# COMMAND ----------
-
 # MAGIC %sql
 # MAGIC SELECT "Run SQL"
 
@@ -103,7 +99,9 @@ displayHTML(html)
 # MAGIC %md
 # MAGIC
 # MAGIC ## Create documentation cells
-# MAGIC Render cell as <a href="https://www.markdownguide.org/cheat-sheet/" target="_blank">Markdown</a> using the magic command: **`%md`**
+# MAGIC Render cell as <a href="https://www.markdownguide.org/cheat-sheet/" target="_blank">Markdown</a> using the magic command: **`%md`** 
+# MAGIC
+# MAGIC **Double click this cell to see the source code for it. Click outside the cell's area to have it rendered again**
 # MAGIC
 # MAGIC Below are some examples of how you can use Markdown to format documentation. Click this cell and press **`Enter`** to view the underlying Markdown syntax.
 # MAGIC
@@ -250,8 +248,10 @@ display(files)
 # MAGIC
 # MAGIC
 # MAGIC
-# MAGIC ## Create table
-# MAGIC Run <a href="https://docs.databricks.com/spark/latest/spark-sql/language-manual/index.html#sql-reference" target="_blank">Databricks SQL Commands</a> to create a table named **`events`** using BedBricks event files on DBFS.
+# MAGIC ## Reading from Delta files
+# MAGIC Run <a href="https://docs.databricks.com/spark/latest/spark-sql/language-manual/index.html#sql-reference" target="_blank">Databricks SQL Commands</a> to read from a delta table on a volume of to create a view/table.
+# MAGIC
+# MAGIC Let's try to select from **`events`** using BedBricks event files on DBFS.
 
 # COMMAND ----------
 
@@ -261,7 +261,15 @@ display(files)
 # COMMAND ----------
 
 # MAGIC %md
-# MAGIC Creating a view for easier data access
+# MAGIC **Creating a view for easier data access**
+# MAGIC
+# MAGIC Let's see our current schema (as defined in `../Includes/Classroom-Setup`) first:
+
+# COMMAND ----------
+
+# MAGIC %sql
+# MAGIC SELECT current_catalog(), current_schema()
+# MAGIC
 
 # COMMAND ----------
 
