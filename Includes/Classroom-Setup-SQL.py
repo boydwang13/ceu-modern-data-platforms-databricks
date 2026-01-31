@@ -33,10 +33,10 @@ except:
 
 # MAGIC %sql
 # MAGIC
-# MAGIC CREATE VIEW IF NOT EXISTS users AS SELECT * FROM delta.`s3a://dbx-data-public/v03/ecommerce/users/users.delta`;
-# MAGIC CREATE VIEW IF NOT EXISTS sales AS SELECT * FROM delta.`s3a://dbx-data-public/v03/ecommerce/sales/sales.delta`;
-# MAGIC CREATE VIEW IF NOT EXISTS products AS SELECT * FROM delta.`s3a://dbx-data-public/v03/products/products.delta`;
-# MAGIC CREATE VIEW IF NOT EXISTS events AS SELECT * FROM delta.`s3a://dbx-data-public/v03/ecommerce/events/events.delta`;
+# MAGIC CREATE VIEW IF NOT EXISTS users AS SELECT * FROM delta.`/Volumes/dbx_course/source/files/datasets/ecommerce/users/users.delta`;
+# MAGIC CREATE VIEW IF NOT EXISTS sales AS SELECT * FROM delta.`/Volumes/dbx_course/source/files/datasets/ecommerce/sales/sales.delta`;
+# MAGIC CREATE VIEW IF NOT EXISTS products AS SELECT * FROM delta.`/Volumes/dbx_course/source/files/datasets/products/products.delta`;
+# MAGIC CREATE VIEW IF NOT EXISTS events AS SELECT * FROM delta.`/Volumes/dbx_course/source/files/datasets/ecommerce/events/events.delta`;
 # MAGIC
 
 # COMMAND ----------

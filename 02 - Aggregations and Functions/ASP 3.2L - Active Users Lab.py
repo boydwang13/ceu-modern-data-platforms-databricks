@@ -8,7 +8,6 @@
 # MAGIC 1. Extract timestamp and date of events
 # MAGIC 2. Get daily active users
 # MAGIC 3. Get average number of active users by day of week
-# MAGIC 4. Sort day of week in correct order
 
 # COMMAND ----------
 

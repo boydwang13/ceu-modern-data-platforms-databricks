@@ -172,6 +172,7 @@ suite.test_equals(
 )
 
 # Display results
+suite.display_results()
 assert suite.passed, "One or more tests failed."
 
 # COMMAND ----------
@@ -229,6 +230,7 @@ suite.test_equals(
 )
 
 # Display results
+suite.display_results()
 assert suite.passed, "One or more tests failed."
 
 # COMMAND ----------
@@ -293,6 +295,7 @@ suite.test_equals(
 )
 
 # Display results
+suite.display_results()
 assert suite.passed, "One or more tests failed."
 
 # COMMAND ----------
@@ -351,6 +354,7 @@ suite.test_equals(
 )
 
 # Display results
+suite.display_results()
 assert suite.passed, "One or more tests failed."
 
 # COMMAND ----------
@@ -404,6 +408,7 @@ suite.test_equals(
 )
 
 # Display results
+suite.display_results()
 assert suite.passed, "One or more tests failed."
 
 # COMMAND ----------

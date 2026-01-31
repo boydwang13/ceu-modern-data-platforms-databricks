@@ -7,7 +7,6 @@
 # MAGIC Get the 3 traffic sources generating the highest total revenue.
 # MAGIC 1. Aggregate revenue by traffic source
 # MAGIC 2. Get top 3 traffic sources by total revenue
-# MAGIC 3. Clean revenue columns to have two decimal places
 # MAGIC
 # MAGIC ##### Methods
 # MAGIC - <a href="https://spark.apache.org/docs/latest/api/python/reference/pyspark.sql/dataframe.html" target="_blank">DataFrame</a>: **`groupBy`**, **`sort`**, **`limit`**

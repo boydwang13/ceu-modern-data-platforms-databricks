@@ -172,6 +172,7 @@ suite.test_equals(
 )
 
 # Display results
+suite.display_results()
 assert suite.passed, "One or more tests failed."
 
 # COMMAND ----------
@@ -229,6 +230,7 @@ suite.test_equals(
 )
 
 # Display results
+suite.display_results()
 assert suite.passed, "One or more tests failed."
 
 # COMMAND ----------
@@ -293,6 +295,7 @@ suite.test_equals(
 )
 
 # Display results
+suite.display_results()
 assert suite.passed, "One or more tests failed."
 
 # COMMAND ----------
@@ -351,6 +354,7 @@ suite.test_equals(
 )
 
 # Display results
+suite.display_results()
 assert suite.passed, "One or more tests failed."
 
 # COMMAND ----------
@@ -361,10 +365,6 @@ assert suite.passed, "One or more tests failed."
 # MAGIC
 # MAGIC ### 6: Bonus Activity
 # MAGIC Plot number of abandoned cart items by product
-
-# COMMAND ----------
-
-display(abandoned_carts_df)
 
 # COMMAND ----------
 
@@ -408,6 +408,7 @@ suite.test_equals(
 )
 
 # Display results
+suite.display_results()
 assert suite.passed, "One or more tests failed."
 
 # COMMAND ----------

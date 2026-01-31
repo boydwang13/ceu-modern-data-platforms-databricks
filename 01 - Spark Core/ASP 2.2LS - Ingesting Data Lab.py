@@ -23,7 +23,7 @@
 # MAGIC
 # MAGIC
 # MAGIC ### 1. Read with infer schema
-# MAGIC - First we will view the first CSV file using DBUtils method **`fs.head`** with the filepath provided in the variable **`single_product_cs_file_path`**
+# MAGIC - First we will view the first CSV file using DBUtils method **`fs.head`** with the filepath provided in the variable **`single_product_csv_file_path`**
 # MAGIC - Create **`products_df`** by reading from CSV files located in the filepath provided in the variable **`products_csv_path`**
 # MAGIC   - Configure options to use first line as header and infer schema
 
@@ -67,7 +67,7 @@ print("All tests pass")
 # TODO
 ddl_schema = "item_id: string, name: string, price: double"
 
-products_df3 = spark.read.csv(products_csv_path, header=True, schema=ddl_schema)
+products_df2 = spark.read.csv(products_csv_path, header=True, schema=ddl_schema)
 
 # COMMAND ----------
 
@@ -80,7 +80,7 @@ products_df3 = spark.read.csv(products_csv_path, header=True, schema=ddl_schema)
 
 # COMMAND ----------
 
-assert(products_df3.count() == 12)
+assert(products_df2.count() == 12)
 print("All tests pass")
 
 # COMMAND ----------

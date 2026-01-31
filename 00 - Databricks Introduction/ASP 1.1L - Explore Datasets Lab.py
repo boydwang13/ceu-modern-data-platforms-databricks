@@ -60,10 +60,10 @@ display(files)
 # MAGIC
 # MAGIC
 # MAGIC ### 3. Create views below from files in DBFS
-# MAGIC - Create the **`users`** view using the delta file's location **`s3a://dbx-data-public/v03/ecommerce/users/users.delta`**
-# MAGIC - Create the **`sales`** view using the spark-context variable **`s3a://dbx-data-public/v03/ecommerce/sales/sales.delta`**
-# MAGIC - Create the **`products`** view using the spark-context variable **`s3a://dbx-data-public/v03/products/products.delta`** (! different folder)
-# MAGIC - Create the **`events`** view using the spark-context variable **`s3a://dbx-data-public/v03/ecommerce/events/events.delta`**
+# MAGIC - Create the **`users`** view using the delta file's location **`/Volumes/dbx_course/source/files/datasets/ecommerce/users/users.delta`**
+# MAGIC - Create the **`sales`** view using **`/Volumes/dbx_course/source/files/datasets/ecommerce/sales/sales.delta`**
+# MAGIC - Create the **`products`** view using **`/Volumes/dbx_course/source/files/datasets/products/products.delta`** (! different folder)
+# MAGIC - Create the **`events`** view using **`/Volumes/dbx_course/source/files/datasets/ecommerce/events/events.delta`**
 # MAGIC
 # MAGIC 💡 Hint: We've already created the **`events`** view in the previous notebook. Use `CREATE VIEW IF NOT EXISTS`
 

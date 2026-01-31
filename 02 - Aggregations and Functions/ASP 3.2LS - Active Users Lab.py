@@ -8,7 +8,6 @@
 # MAGIC 1. Extract timestamp and date of events
 # MAGIC 2. Get daily active users
 # MAGIC 3. Get average number of active users by day of week
-# MAGIC 4. Sort day of week in correct order
 
 # COMMAND ----------
 
@@ -49,8 +48,6 @@ display(df)
 # COMMAND ----------
 
 # TODO
-from pyspark.sql.functions import to_date
-
 datetime_df = df.withColumn("ts", (col("ts") / 1000000).cast("timestamp")).withColumn("date", col("ts").cast("date"))
 display(datetime_df)
 
