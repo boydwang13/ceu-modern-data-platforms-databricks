@@ -10,7 +10,7 @@ Before accessing the datasets, run the classroom setup in a new cell:
 
 This will:
 - Set up the catalog and schema (`dbx_course.target`)
-- Copy the exercise datasets to the Unity Catalog volume
+- Copy the exercise datasets to the Unity Catalog volume (if not copied yet)
 
 ---
 
