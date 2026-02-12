@@ -102,6 +102,8 @@ Some sections are marked as **self-learning**. These require you to look up tech
 
 Submit on Moodle:
 
+0. Add your and your peer's Name and Student ID into a `%md` cell. First cell in the notebook. It's enough if one party from each group submits the exercise.
+
 1. **Export your notebook** — go to **File → Export...** and select **IPython Notebook**. Upload the exported `.ipynb` file as the assignment on Moodle.
 
    ![File → Export in Databricks](.dev/images/databricks-export.png)
